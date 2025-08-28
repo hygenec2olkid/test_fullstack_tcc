@@ -1,0 +1,7 @@
+<div class="confirm-container">
+  ต้องการลบข้อมูลสินค้า รหัสสินค้า {{ displayProduct(data.productNo) }} หรือไม่ ?
+  <div class="button-group">
+    <button mat-button (click)="closeModal('confirm')">ตกลง</button>
+    <button mat-button (click)="closeModal('cancel')">ยกเลิก</button>
+  </div>
+</div>

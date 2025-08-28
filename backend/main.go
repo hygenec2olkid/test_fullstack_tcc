@@ -2,15 +2,26 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"net/http"
+	"backend/controller"
+	"backend/db"
+	"backend/repository"
+	"backend/service"
+	"github.com/gin-contrib/cors"
 )
 
 func main() {
-	r := gin.Default()
+	database.Connect()
 
-	r.GET("/", func(c *gin.Context) {
-		c.String(http.StatusOK, "Hello, World!")
-	})
+	productRepo := repository.NewProductRepository(database.DB)
+	productService := service.NewProductService(productRepo)
+	productController := controller.NewProductController(productService)
+	
+	r := gin.Default()
+	r.Use(cors.Default())
+
+	r.GET("/products", productController.GetProducts)
+	r.POST("/products", productController.CreateProduct)
+	r.DELETE("/products/:id", productController.DeleteProduct)
 
 	r.Run(":8080")
 

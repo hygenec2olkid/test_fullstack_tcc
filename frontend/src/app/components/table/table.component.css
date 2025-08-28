@@ -1,0 +1,16 @@
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  padding: 1rem;
+}
+
+.header-row {
+  background-color: rgb(42, 192, 229);
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+}

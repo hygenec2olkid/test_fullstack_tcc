@@ -1,0 +1,20 @@
+<table class="custom-table">
+  <thead>
+    <tr class="header-row">
+      <th>Id</th>
+      <th>รหัสสินค้า (36 หลัก)</th>
+      <th>View</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (item of products(); track $index) {
+    <tr>
+      <td>{{ item.id }}</td>
+      <td style="text-align: left">{{ displayProduct(item.product_no) }}</td>
+      <td><button class="btn-qr" (click)="onViewQR(item.product_no)">QR</button></td>
+      <td><button class="btn-delete" (click)="onDelete(item.product_no, item.id)">ลบ</button></td>
+    </tr>
+    }
+  </tbody>
+</table>
