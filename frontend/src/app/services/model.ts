@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponentData } from '../components/qrcodeModal/qrcode.component';
-import { ConfirmModal } from '../components/confirmModal/qrcode.component';
+import { ConfirmModal } from '../components/confirmModal/confirm.component';
 
 @Injectable({
   providedIn: 'root',
